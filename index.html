@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window</title>
+    <!-- <link rel="preload" as="image" href="./assets/window.jpg" /> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+      integrity="sha512-XcIsjKMcuVe0Ucj/xgIXQnytNwBttJbNjltBV18IOnru2lDPe9KRRyvCXw6Y5H415vbBLRm8+q6fmLUU7DfO6Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="loader">Loading...</div>
+    <div class="filter-overlay"></div>
+    <div class="contextMenu">
+      <p class="refresh">Refresh</p>
+      <p class="newFolder">New Folder</p>
+      <p>Open VS code</p>
+      <p class="changeWallpaper">Change Wallpaper</p>
+    </div>
+    <main>
+      <div class="thisPC icon">
+        <img src="./assets/thisPC.png" alt="" />
+      </div>
+      <div class="thisPCwindow" id="thisPC">
+        <div class="nav" id="thisPCHeader">
+          <span>This PC</span>
+          <div class="icons">
+            <div class="minimize elem">
+              <i class="ri-subtract-fill"></i>
+            </div>
+            <div class="maximize elem">
+              <i class="ri-square-line"></i>
+            </div>
+            <div class="close elem">
+              <i class="ri-close-large-fill"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="recycleBin icon">
+        <img src="./assets/recycleBin.png" alt="" />
+      </div>
+      <div class="fileExplorer icon">
+        <img src="./assets/files.png" alt="" />
+      </div>
+      <div class="fileExplorerWindow" id="fileExplorer">
+        <div class="nav" id="fileExplorerHeader">
+          <span>File Explorer</span>
+          <div class="icons">
+            <div class="minimize elem">
+              <i class="ri-subtract-fill"></i>
+            </div>
+            <div class="maximize elem">
+              <i class="ri-square-line"></i>
+            </div>
+            <div class="close elem">
+              <i class="ri-close-large-fill"></i>
+            </div>
+          </div>
+        </div>
+        <div class="two">
+          <h3 class="file">File</h3>
+          <h3 class="computer">Computer</h3>
+          <h3>View</h3>
+          <h3>Drive Tools</h3>
+        </div>
+        <div class="three">
+          <div class="properties">
+            <h4>Properties</h4>
+          </div>
+          <div class="open">
+            <h4>Open</h4>
+          </div>
+          <div class="rename">
+            <h4>Rename</h4>
+          </div>
+          <p>Location</p>
+        </div>
+        <div class="four">
+          <i class="ri-arrow-left-line"></i>
+          <i class="ri-arrow-right-line"></i>
+          <i class="ri-arrow-down-s-line"></i>
+          <i class="ri-arrow-up-line"></i>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="left">
+        <div class="start">
+          <i class="ri-windows-fill"></i>
+
+          <div class="start-menu">
+            <div class="sidebar">
+              <div class="user-icon"></div>
+              <ul class="apps-list">
+                <li class="category">#</li>
+                <li>3D Viewer</li>
+                <li class="category">A</li>
+                <li>Adobe ImageReady 7.0</li>
+                <li>Adobe Photoshop 7.0</li>
+                <li>Adobe Reader XI</li>
+                <li class="category">B</li>
+                <li>Brave</li>
+                <li class="category">C</li>
+                <li>Calculator</li>
+                <li>Calendar</li>
+                <li>Camera</li>
+                <li>Clock</li>
+                <li>Connect</li>
+                <li>Copilot</li>
+              </ul>
+              <div class="power-icon">⏻</div>
+            </div>
+
+            <div class="tiles">
+              <div class="section">
+                <h4>Productivity</h4>
+                <div class="grid">
+                  <div class="tile">Microsoft 365</div>
+                  <div class="tile">Skype</div>
+                  <div class="tile">OneNote</div>
+                  <div class="tile">Outlook</div>
+                  <div class="tile">Microsoft Edge</div>
+                  <div class="tile">Photos</div>
+                  <div class="tile">LinkedIn</div>
+                </div>
+              </div>
+              <div class="section">
+                <h4>Explore</h4>
+                <div class="grid">
+                  <div class="tile">Microsoft Store</div>
+                  <div class="tile">Movies & TV</div>
+                  <div class="tile">WhatsApp</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="search">
+          <div class="searchIcon">
+            <i class="ri-search-line"></i>
+          </div>
+          <input type="text " placeholder="Type here to search" />
+        </div>
+        <div class="taskView">
+          <i class="ri-carousel-view"></i>
+        </div>
+        <div class="microsoftEdge"></div>
+        <div class="chrome">
+          <img src="./assets/chrome.png" alt="" />
+        </div>
+        <div class="vsCode">
+          <img src="./assets/vscode.png" alt="" />
+        </div>
+      </div>
+      <div class="right">
+        <div class="weather rightIcon">
+          <i class="ri-sun-cloudy-fill"></i>
+          <span>Very Humid</span>
+        </div>
+        <div class="arrow rightIcon">
+          <i class="ri-arrow-up-s-line"></i>
+        </div>
+        <div class="battery rightIcon">
+          <i class="ri-battery-fill"></i>
+        </div>
+
+        <div class="wifi rightIcon">
+          <i class="ri-rss-line"></i>
+        </div>
+        <div class="volume rightIcon">
+          <i class="ri-volume-up-line"></i>
+        </div>
+        <div class="lang rightIcon">
+          <h5>ENG</h5>
+          <h5>IN</h5>
+        </div>
+        <div class="time rightIcon">
+          <h5 class="timeText">1:52 PM</h5>
+          <h5 class="dateText">7/3/2025</h5>
+        </div>
+        <div class="notification">
+          <i class="ri-chat-2-line"></i>
+          <div class="overlayNotification">
+            <h3>Manage Notification</h3>
+            <h2>No new notification</h2>
+            <div class="icons">
+              <p>Collapse</p>
+
+              <div class="location elem">
+                <i class="ri-map-pin-range-fill"></i>
+                <h4>location</h4>
+              </div>
+              <div class="batterySaver elem">
+                <i class="ri-leaf-line"></i>
+                <h4>Battery saver</h4>
+              </div>
+              <div class="bluetooth elem">
+                <i class="ri-bluetooth-fill"></i>
+                <h4>Bluetooth</h4>
+              </div>
+              <div class="nightLight elem">
+                <i class="ri-moon-fill"></i>
+                <h4>Night Light</h4>
+              </div>
+              <div class="hotspot elem">
+                <i class="ri-broadcast-line"></i>
+                <h4>Mobile hotspot</h4>
+              </div>
+              <div class="airplane elem">
+                <i class="ri-flight-takeoff-line"></i>
+                <h4>Airplane mode</h4>
+              </div>
+              <div class="sharing elem">
+                <i class="ri-cast-fill"></i>
+                <h4>Nearby sharing</h4>
+              </div>
+              <div class="settings elem">
+                <i class="ri-settings-5-fill"></i>
+                <h4>All Settings</h4>
+              </div>
+              <div class="network elem">
+                <i class="ri-wifi-line"></i>
+                <h4>Network</h4>
+              </div>
+              <div class="connect elem">
+                <i class="ri-device-line"></i>
+                <h4>Connect</h4>
+              </div>
+              <div class="project elem">
+                <i class="ri-aed-electrodes-line"></i>
+                <h4>Project</h4>
+              </div>
+              <div class="vpn elem">
+                <i class="ri-organization-chart"></i>
+                <h4>VPN</h4>
+              </div>
+              <div class="focus elem">
+                <i class="ri-moon-line"></i>
+                <h4>Focus Assist</h4>
+              </div>
+              <div class="snip elem">
+                <i class="ri-scissors-line"></i>
+                <h4>Screen snip</h4>
+              </div>
+              <div class="brightness">
+                <i class="ri-sun-line"></i>
+                <input
+                  type="range"
+                  id="brightnessSlider"
+                  min="25"
+                  max="100"
+                  value="50"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="./main.js"></script>
+  </body>
+</html>
