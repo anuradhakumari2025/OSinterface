@@ -77,13 +77,6 @@ let thisPCwindow = document.querySelector(".thisPCwindow");
 let fileExplorerWindow = document.querySelector(".fileExplorerWindow");
 let windowOpen = document.querySelector(".window");
 
-let maximize = document.querySelectorAll(".window .nav .icons .maximize");
-maximize.forEach((max) => {
-  max.addEventListener("click", () => {
-    thisPCwindow.classList.add("maximized");
-  });
-});
-
 //function for This PC
 thisPC.addEventListener("dblclick", () => {
   thisPCwindow.style.display = "block";
@@ -93,59 +86,95 @@ thisPC.addEventListener("dblclick", () => {
       thisPCwindow.style.display = "none";
     });
   let maximize = false;
-  document
-    .querySelector(".thisPCwindow .nav .icons .maximize")
-    .addEventListener("click", () => {
-      if (!maximize) {
-        thisPCwindow.classList.add("maximized");
-        document
-          .querySelector(".thisPCwindow .nav .icons .maximize i")
-          .classList.remove("ri-square-line");
-        document
-          .querySelector(".thisPCwindow .nav .icons .maximize i")
-          .classList.add("ri-file-copy-line");
-        maximize = true;
-      } else {
-        thisPCwindow.classList.remove("maximized");
-        document
-          .querySelector(".thisPCwindow .nav .icons .maximize i")
-          .classList.remove("ri-file-copy-line");
-        document
-          .querySelector(".thisPCwindow .nav .icons .maximize i")
-          .classList.add("ri-square-line");
+  const maximizeDiv = document.querySelector(
+    ".thisPCwindow .nav .icons .maximize"
+  );
+  maximizeDiv.addEventListener("click", () => {
+    const maximizeIcon = document.querySelector(
+      ".thisPCwindow .nav .icons .maximize i"
+    );
+    const thisPCheader = document.querySelector(
+      ".thisPCwindow .nav #thisPCHeader"
+    );
+    const icons = document.querySelector(".thisPCwindow .nav .icons");
+    const sidebar = document.querySelector(
+      ".thisPCwindow .five .sidebar"
+    );
+    const thisPCcontent = document.querySelector(
+      ".thisPCwindow .five .right"
+    );
+    if (!maximize) {
+      thisPCwindow.classList.add("maximized");
 
-        maximize = false;
-      }
-    });
+      maximizeIcon.classList.remove("ri-square-line");
+      maximizeIcon.classList.add("ri-file-copy-line");
+      thisPCheader.style.width = "73%";
+      icons.style.width = "9%";
+sidebar.style.width = "12%";
+      thisPCcontent.style.width = "88%";
+      maximize = true;
+    } else {
+      thisPCwindow.classList.remove("maximized");
+      maximizeIcon.classList.remove("ri-file-copy-line");
+      maximizeIcon.classList.add("ri-square-line");
+      thisPCheader.style.width = "62%";
+      icons.style.width = "20%";
+      thisPCcontent.style.width = "75%";
+      sidebar.style.width = "20%";
+      maximize = false;
+    }
+  });
 });
 
 //function for file explorer
 fileExplorer.addEventListener("dblclick", () => {
   fileExplorerWindow.style.display = "block";
-  document
-    .querySelector(".fileExplorerWindow .nav .icons .close")
-    .addEventListener("click", () => {
-      fileExplorerWindow.style.display = "none";
-    });
+  const close = document.querySelector(
+    ".fileExplorerWindow .nav .icons .close"
+  );
+
+  close.addEventListener("click", () => {
+    fileExplorerWindow.style.display = "none";
+  });
   let maximize = false;
-  document
-    .querySelector(".fileExplorerWindow .nav .icons .maximize")
-    .addEventListener("click", () => {
-      const maximizeIcon = document.querySelector(
-        ".fileExplorerWindow .nav .icons .maximize i"
-      );
-      if (!maximize) {
-        fileExplorerWindow.classList.add("maximized");
-        maximizeIcon.classList.remove("ri-square-line");
-        maximizeIcon.classList.add("ri-file-copy-line");
-        maximize = true;
-      } else {
-        fileExplorerWindow.classList.remove("maximized");
-        maximizeIcon.classList.remove("ri-file-copy-line");
-        maximizeIcon.classList.add("ri-square-line");
-        maximize = false;
-      }
-    });
+  const maximizeDiv = document.querySelector(
+    ".fileExplorerWindow .nav .icons .maximize"
+  );
+
+  maximizeDiv.addEventListener("click", () => {
+    const maximizeIcon = document.querySelector(
+      ".fileExplorerWindow .nav .icons .maximize i"
+    );
+    const fileExplorerHeader = document.querySelector(
+      ".fileExplorerWindow .nav #fileExplorerHeader"
+    );
+    const icons = document.querySelector(".fileExplorerWindow .nav .icons");
+    const sidebar = document.querySelector(
+      ".fileExplorerWindow .five .sidebar"
+    );
+    const fileExplorerContent = document.querySelector(
+      ".fileExplorerWindow .five .right"
+    );
+    if (!maximize) {
+      fileExplorerWindow.classList.add("maximized");
+      maximizeIcon.classList.remove("ri-square-line");
+      maximizeIcon.classList.add("ri-file-copy-line");
+      fileExplorerHeader.style.width = "73%";
+      icons.style.width = "9%";
+      sidebar.style.width = "12%";
+      fileExplorerContent.style.width = "88%";
+      maximize = true;
+    } else {
+      fileExplorerWindow.classList.remove("maximized");
+      maximizeIcon.classList.remove("ri-file-copy-line");
+      maximizeIcon.classList.add("ri-square-line");
+      fileExplorerHeader.style.width = "62%";
+      icons.style.width = "20%";
+      fileExplorerContent.style.width = "75%";
+      sidebar.style.width = "20%";
+      maximize = false;
+    }
+  });
 });
 
 dragElement(fileExplorerWindow);
@@ -390,17 +419,17 @@ function newFolderFunctionality() {
 }
 newFolderFunctionality();
 
-function startMenuOpen(){
+function startMenuOpen() {
   let start = document.querySelector("footer .left .start i");
-let startMenu = document.querySelector("footer .left .start .start-menu");
-start.addEventListener("click", () => {
-  startMenu.classList.add("active");
-  main.addEventListener("click", (e) => {
-    // Check if click target is NOT inside the context menu
-    if (!startMenu.contains(e.target)) {
-      startMenu.classList.remove("active");
-    }
+  let startMenu = document.querySelector("footer .left .start .start-menu");
+  start.addEventListener("click", () => {
+    startMenu.classList.add("active");
+    main.addEventListener("click", (e) => {
+      // Check if click target is NOT inside the context menu
+      if (!startMenu.contains(e.target)) {
+        startMenu.classList.remove("active");
+      }
+    });
   });
-});
 }
-startMenuOpen()
+startMenuOpen();
