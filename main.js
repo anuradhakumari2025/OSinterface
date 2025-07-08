@@ -310,7 +310,7 @@ function wallpaperFunctionality() {
     contextMenu.style.display = "none";
   });
 }
-wallpaperFunctionality();
+// wallpaperFunctionality();
 
 const refresh = document.querySelector(".contextMenu .refresh");
 refresh.addEventListener("click", () => {
