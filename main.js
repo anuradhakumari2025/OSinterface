@@ -243,8 +243,8 @@ function dragElement(elem) {
 
 //change wallpaper
 const wallpapersLink = [
-    "./assets/window.jpg",
-  "https://plus.unsplash.com/premium_photo-1711434824963-ca894373272e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG5hdHVyZXxlbnwwfHwwfHx8MA%3D%3D",
+  "./assets/window.jpg",
+  "https://plus.unsplash.com/premium_photo-1675603849815-ba73e7c4f36e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2luZG93JTIwMTB8ZW58MHx8MHx8fDA%3D",
   "https://plus.unsplash.com/premium_photo-1711434824963-ca894373272e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG5hdHVyZXxlbnwwfHwwfHx8MA%3D%3D",
   "https://images.unsplash.com/photo-1507187632231-5beb21a654a2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGFwdG9wJTIwd2FsbHBhcGVyfGVufDB8MHwwfHx8MA%3D%3D",
   "https://images.unsplash.com/photo-1690068867587-d7572f95ff33?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGxhcHRvcCUyMHRocmVlJTIwZCUyMHdhbGxwYXBlcnxlbnwwfDB8MHx8fDA%3D",
@@ -570,6 +570,23 @@ function cameraFunctionality() {
       const imageDataURL = canvas.toDataURL("image/png");
 
       capturedImage.src = imageDataURL;
+
+     // Save in picturesContainer with folder structure
+  const picturesContainer = document.getElementById("picturesContainer");
+
+  const folderDiv = document.createElement("div");
+  folderDiv.classList.add("folder");
+
+  const folderImgDiv = document.createElement("div");
+  folderImgDiv.classList.add("folderImg");
+
+  const img = document.createElement("img");
+  img.src = imageDataURL;
+  img.alt = "Captured Photo";
+
+  folderImgDiv.appendChild(img);
+  folderDiv.appendChild(folderImgDiv);
+  picturesContainer.appendChild(folderDiv);
     });
   });
 
@@ -588,3 +605,51 @@ function cameraFunctionality() {
   });
 }
 cameraFunctionality();
+
+function chromeFunctionality(){
+  document
+  .getElementById("googleSearch")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const query = document.getElementById("searchInput").value.trim();
+    const resultsDiv = document.getElementById("results");
+
+    if (!query) return;
+
+    // Clear previous results
+    resultsDiv.innerHTML = "Searching...";
+
+    try {
+      const res = await fetch(
+        `https://api.duckduckgo.com/?q=${encodeURIComponent(
+          query
+        )}&format=json&pretty=1`
+      );
+      const data = await res.json();
+
+      if (data.RelatedTopics.length > 0) {
+        resultsDiv.innerHTML = data.RelatedTopics.map((topic) => {
+          if (topic.Text && topic.FirstURL) {
+            return `<div><a href="${topic.FirstURL}" target="_blank">${topic.Text}</a></div>`;
+          }
+          return "";
+        }).join("");
+      } else {
+        resultsDiv.innerHTML = "No results found.";
+      }
+    } catch (err) {
+      resultsDiv.innerHTML = "Failed to fetch search results.";
+    }
+  });
+
+const chromeWindow = document.querySelector(".chrome-window");
+const chromeIcon = document.querySelector(".chrome");
+chromeIcon.addEventListener("dblclick", () => {
+  chromeWindow.style.display = "block";
+});
+const close = document.querySelector(".chrome-window .close");
+close.addEventListener("click", () => {
+  chromeWindow.style.display = "none";
+});
+}
+chromeFunctionality()

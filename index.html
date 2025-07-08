@@ -15,7 +15,9 @@
   </head>
 
   <body>
-    <div id="loader">Loading...</div>
+    <div id="loader">
+      <!-- <img src="./assets/window10.png" alt=""> -->
+    </div>
     <div class="filter-overlay"></div>
     <div class="contextMenu">
       <p class="refresh">Refresh</p>
@@ -163,7 +165,7 @@
           <div class="threeIcon">
             <div class="properties">
               <div class="i"><i class="ri-pushpin-fill"></i></div>
-              <h4>Pin to Quick access</h4>
+              <h4>Pin</h4>
             </div>
             <div class="open">
               <div class="i">
@@ -184,7 +186,8 @@
         </div>
 
         <div class="four">
-          <div class="fourIcon">
+          <div class="direction">
+            <div class="fourIcon">
             <i class="ri-arrow-left-line"></i>
           </div>
           <div class="fourIcon">
@@ -196,49 +199,25 @@
           <div class="fourIcon">
             <i class="ri-arrow-up-line"></i>
           </div>
-          <div class="box">Quick Access</div>
+          </div>
+          <div class="box">Pictures</div>
           <div class="searchBox">Search</div>
         </div>
 
         <div class="five">
           <div class="sidebar">
             <ul>
-              <li>Quick Access</li>
+              <li>Pictures</li>
               <li>Desktop</li>
               <li>Downloads</li>
               <li>Documents</li>
-              <li>Pictures</li>
               <li>One Drive</li>
               <li>This PC</li>
             </ul>
           </div>
           <div class="right">
-            <h4>Frequent Folders</h4>
-            <div class="frequentFol">
-              <div class="folder">
-                <div class="folderImg">
-                  <img src="./assets/newFolder.png" alt="" />
-                </div>
-                <p>Documents</p>
-              </div>
-              <div class="folder">
-                <div class="folderImg">
-                  <img src="./assets/newFolder.png" alt="" />
-                </div>
-                <p>Pictures</p>
-              </div>
-              <div class="folder">
-                <div class="folderImg">
-                  <img src="./assets/newFolder.png" alt="" />
-                </div>
-                <p>Videos</p>
-              </div>
-              <div class="folder">
-                <div class="folderImg">
-                  <img src="./assets/newFolder.png" alt="" />
-                </div>
-                <p>Music</p>
-              </div>
+            <h4>Pictures</h4>
+            <div class="frequentFol" id="picturesContainer">                        
             </div>
           </div>
         </div>
@@ -402,6 +381,36 @@
           <img src="./assets/chrome.png" alt="" />
         </div>
 
+        <div class="chrome-window" id="chromeWindow">
+          <div class="nav" id="chrome-windowHeader">
+          <span>File Explorer</span>
+
+          <div class="icons">
+            <div class="minimize elem">
+              <i class="ri-subtract-fill"></i>
+            </div>
+            <div class="maximize elem">
+              <i class="ri-square-line"></i>
+            </div>
+            <div class="close elem">
+              <i class="ri-close-large-fill"></i>
+            </div>
+          </div>
+        </div>
+          <div class="fake-google">
+            <h2>Google</h2>
+            <form id="googleSearch">
+              <input
+                type="text"
+                placeholder="Search Google..."
+                id="searchInput"
+              />
+              <button type="submit">Search</button>
+            </form>
+            <div id="results" class="results"></div>
+          </div>
+        </div>
+
         <div class="vsCode">
           <img src="./assets/vscode.png" alt="" />
 
@@ -470,8 +479,7 @@
                     spellcheck="false"
                     id="code-area"
                     placeholder="// Start typing your code here..."
-                  >
-console.log("Hello World")</textarea
+                  >console.log("Hello World")</textarea
                   >
                 </div>
 

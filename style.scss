@@ -6,10 +6,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: $bg-darker;
+  background-color: #000000;
   color: $text-color;
   padding: 0 10px;
-  height: 2rem;
+  height: 2.5rem;
   font-size: 14px;
   span {
     align-self: center;
@@ -70,6 +70,16 @@ img {
   height: 2.6rem;
   aspect-ratio: 1/1;
 }
+
+#loader {
+  width: 100%;
+  height: 100%;
+  background-image: url("./assets/window10.png");
+  background-position: 0% 70%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .filter-overlay {
   position: fixed;
   top: 0;
@@ -247,7 +257,7 @@ main {
       background-color: black;
       h3 {
         font-weight: 400;
-        font-size: 1rem;
+        font-size: 0.8rem;
         color: white;
         padding: 0.4rem 1rem;
       }
@@ -263,7 +273,7 @@ main {
     .three {
       display: flex;
       flex-direction: column;
-      width: 35%;
+      width: 15rem;
       color: #888;
       padding: 0 0.3rem;
       .threeIcon {
@@ -273,10 +283,11 @@ main {
           .i {
             display: flex;
             align-items: center;
+            gap: 0.5rem;
             justify-content: center;
             padding: 0.5rem 0;
             i {
-              font-size: 2.3rem;
+              font-size: 1.5rem;
             }
           }
           h4 {
@@ -301,8 +312,13 @@ main {
       width: 100%;
       padding: 0 0.5rem;
 
+      .direction {
+        width: 8rem;
+        display: flex;
+        gap: 0.5rem;
+      }
       .fourIcon {
-        font-size: 1.8rem;
+        font-size: 1.2rem;
         color: #888;
       }
       .box {
@@ -328,8 +344,9 @@ main {
       display: flex;
       padding-top: 0.5rem;
       width: 100%;
+
       .sidebar {
-        width: 25%;
+        width: 10rem;
         background-color: #202020;
         ul {
           li {
@@ -345,7 +362,7 @@ main {
       .right {
         padding: 0 0.5rem;
         background-color: #2d2d2d;
-        width: 75%;
+        height: 20rem;
         h4 {
           color: white;
           font-size: 1rem;
@@ -410,25 +427,28 @@ main {
     top: 10%;
     left: 10%;
     overflow: hidden;
-    // display: block;
+    display: none;
+    width: 40rem;
+    height: 30rem;
     .five {
       .right {
-        .frequentFol {
+        #picturesContainer {
+          height: 24rem;
           display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 2rem;
+          grid-template-columns: repeat(7, 10rem);
+          gap: 1rem;
+          overflow-y: auto;
           .folder {
             display: flex;
             gap: 0.4rem;
+            height: 10rem;
+
             .folderImg {
-              width: 3rem;
+              width: 100%;
               img {
                 width: 100%;
                 height: 100%;
               }
-            }
-            p {
-              color: white;
             }
           }
         }
@@ -450,6 +470,7 @@ footer {
   .left {
     display: flex;
     align-items: center;
+
     .start {
       font-size: 1.3rem;
     }
@@ -492,6 +513,55 @@ footer {
     .vsCode:hover {
       background-color: $hover;
     }
+    .chrome-window {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      z-index: 10;
+      width: 30rem;
+      height: 40rem;
+      display: none;
+      .nav {
+        @include nav;
+      }
+    }
+
+    .fake-google {
+      padding: 2rem;
+      text-align: center;
+      flex-grow: 1;
+      background: white;
+    }
+
+    .fake-google h2 {
+      font-size: 3rem;
+      background: linear-gradient(to right, red, blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 2rem;
+    }
+
+    .fake-google input {
+      padding: 0.5rem;
+      width: 60%;
+      font-size: 1rem;
+    }
+
+    .fake-google button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+    }
+    .results {
+      margin-top: 1rem;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+    .results a {
+      color: blue;
+      text-decoration: underline;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
 
     .vsCode {
       background-color: $bg-dark;
@@ -511,10 +581,10 @@ footer {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          background-color: $bg-darker;
+          background-color: #000000;
           color: $text-color;
           padding: 0 10px;
-          height: 2rem;
+          height: 2.5rem;
           font-size: 14px;
 
           .menu {
@@ -552,6 +622,9 @@ footer {
             }
             div:hover {
               background-color: $hover;
+            }
+            .close:hover {
+              background-color: red;
             }
           }
         }
@@ -664,7 +737,9 @@ footer {
               font-family: monospace;
               font-size: 13px;
               border-top: 1px solid #333;
-
+              span {
+                color: green;
+              }
               pre {
                 white-space: pre-wrap;
               }

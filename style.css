@@ -23,6 +23,15 @@ img {
   aspect-ratio: 1/1;
 }
 
+#loader {
+  width: 100%;
+  height: 100%;
+  background-image: url("./assets/window10.png");
+  background-position: 0% 70%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .filter-overlay {
   position: fixed;
   top: 0;
@@ -106,10 +115,10 @@ main .camera-ui .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #252526;
+  background-color: #000000;
   color: #cccccc;
   padding: 0 10px;
-  height: 2rem;
+  height: 2.5rem;
   font-size: 14px;
 }
 main .camera-ui .nav span {
@@ -220,10 +229,10 @@ main .fileExplorerWindow .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #252526;
+  background-color: #000000;
   color: #cccccc;
   padding: 0 10px;
-  height: 2rem;
+  height: 2.5rem;
   font-size: 14px;
 }
 main .thisPCwindow .nav span,
@@ -265,7 +274,7 @@ main .fileExplorerWindow .two {
 main .thisPCwindow .two h3,
 main .fileExplorerWindow .two h3 {
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 0.8rem;
   color: white;
   padding: 0.4rem 1rem;
 }
@@ -282,7 +291,7 @@ main .thisPCwindow .three,
 main .fileExplorerWindow .three {
   display: flex;
   flex-direction: column;
-  width: 35%;
+  width: 15rem;
   color: #888;
   padding: 0 0.3rem;
 }
@@ -295,12 +304,13 @@ main .thisPCwindow .three .threeIcon div .i,
 main .fileExplorerWindow .three .threeIcon div .i {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
   justify-content: center;
   padding: 0.5rem 0;
 }
 main .thisPCwindow .three .threeIcon div .i i,
 main .fileExplorerWindow .three .threeIcon div .i i {
-  font-size: 2.3rem;
+  font-size: 1.5rem;
 }
 main .thisPCwindow .three .threeIcon div h4,
 main .fileExplorerWindow .three .threeIcon div h4 {
@@ -323,9 +333,15 @@ main .fileExplorerWindow .four {
   width: 100%;
   padding: 0 0.5rem;
 }
+main .thisPCwindow .four .direction,
+main .fileExplorerWindow .four .direction {
+  width: 8rem;
+  display: flex;
+  gap: 0.5rem;
+}
 main .thisPCwindow .four .fourIcon,
 main .fileExplorerWindow .four .fourIcon {
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   color: #888;
 }
 main .thisPCwindow .four .box,
@@ -355,7 +371,7 @@ main .fileExplorerWindow .five {
 }
 main .thisPCwindow .five .sidebar,
 main .fileExplorerWindow .five .sidebar {
-  width: 25%;
+  width: 10rem;
   background-color: #202020;
 }
 main .thisPCwindow .five .sidebar ul li,
@@ -372,7 +388,7 @@ main .thisPCwindow .five .right,
 main .fileExplorerWindow .five .right {
   padding: 0 0.5rem;
   background-color: #2d2d2d;
-  width: 75%;
+  height: 20rem;
 }
 main .thisPCwindow .five .right h4,
 main .fileExplorerWindow .five .right h4 {
@@ -431,25 +447,28 @@ main .fileExplorerWindow {
   top: 10%;
   left: 10%;
   overflow: hidden;
+  display: none;
+  width: 40rem;
+  height: 30rem;
 }
-main .fileExplorerWindow .five .right .frequentFol {
+main .fileExplorerWindow .five .right #picturesContainer {
+  height: 24rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(7, 10rem);
+  gap: 1rem;
+  overflow-y: auto;
 }
-main .fileExplorerWindow .five .right .frequentFol .folder {
+main .fileExplorerWindow .five .right #picturesContainer .folder {
   display: flex;
   gap: 0.4rem;
+  height: 10rem;
 }
-main .fileExplorerWindow .five .right .frequentFol .folder .folderImg {
-  width: 3rem;
+main .fileExplorerWindow .five .right #picturesContainer .folder .folderImg {
+  width: 100%;
 }
-main .fileExplorerWindow .five .right .frequentFol .folder .folderImg img {
+main .fileExplorerWindow .five .right #picturesContainer .folder .folderImg img {
   width: 100%;
   height: 100%;
-}
-main .fileExplorerWindow .five .right .frequentFol .folder p {
-  color: white;
 }
 
 footer {
@@ -512,6 +531,84 @@ footer .left .chrome:hover,
 footer .left .vsCode:hover {
   background-color: #3a3a3a;
 }
+footer .left .chrome-window {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  z-index: 10;
+  width: 30rem;
+  height: 40rem;
+  display: none;
+}
+footer .left .chrome-window .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000;
+  color: #cccccc;
+  padding: 0 10px;
+  height: 2.5rem;
+  font-size: 14px;
+}
+footer .left .chrome-window .nav span {
+  align-self: center;
+  padding: 0 0.5rem;
+}
+footer .left .chrome-window .nav .icons {
+  display: flex;
+  height: 100%;
+  width: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer .left .chrome-window .nav .icons div {
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.6rem;
+}
+footer .left .chrome-window .nav .icons div:hover {
+  background-color: #3a3a3a;
+}
+footer .left .chrome-window .nav .icons .close:hover {
+  background-color: red;
+}
+footer .left .fake-google {
+  padding: 2rem;
+  text-align: center;
+  flex-grow: 1;
+  background: white;
+}
+footer .left .fake-google h2 {
+  font-size: 3rem;
+  background: linear-gradient(to right, red, blue);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+}
+footer .left .fake-google input {
+  padding: 0.5rem;
+  width: 60%;
+  font-size: 1rem;
+}
+footer .left .fake-google button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+footer .left .results {
+  margin-top: 1rem;
+  text-align: left;
+  font-size: 0.9rem;
+}
+footer .left .results a {
+  color: blue;
+  text-decoration: underline;
+  display: block;
+  margin-bottom: 0.5rem;
+}
 footer .left .vsCode {
   background-color: #1e1e1e;
   color: #cccccc;
@@ -530,10 +627,10 @@ footer .left .vsCode .vscode-ui .top-bar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #252526;
+  background-color: #000000;
   color: #cccccc;
   padding: 0 10px;
-  height: 2rem;
+  height: 2.5rem;
   font-size: 14px;
 }
 footer .left .vsCode .vscode-ui .top-bar .menu {
@@ -571,6 +668,9 @@ footer .left .vsCode .vscode-ui .top-bar .window-controls div {
 }
 footer .left .vsCode .vscode-ui .top-bar .window-controls div:hover {
   background-color: #3a3a3a;
+}
+footer .left .vsCode .vscode-ui .top-bar .window-controls .close:hover {
+  background-color: red;
 }
 footer .left .vsCode .vscode-ui .main {
   display: flex;
@@ -667,6 +767,9 @@ footer .left .vsCode .vscode-ui .main .editor .terminal {
   font-family: monospace;
   font-size: 13px;
   border-top: 1px solid #333;
+}
+footer .left .vsCode .vscode-ui .main .editor .terminal span {
+  color: green;
 }
 footer .left .vsCode .vscode-ui .main .editor .terminal pre {
   white-space: pre-wrap;
