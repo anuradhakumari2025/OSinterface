@@ -90,6 +90,104 @@ main .newFolder:hover {
   -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(4px);
 }
+main .camera-ui {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: black;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0;
+}
+main .camera-ui .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #252526;
+  color: #cccccc;
+  padding: 0 10px;
+  height: 2rem;
+  font-size: 14px;
+}
+main .camera-ui .nav span {
+  align-self: center;
+  padding: 0 0.5rem;
+}
+main .camera-ui .nav .icons {
+  display: flex;
+  height: 100%;
+  width: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main .camera-ui .nav .icons div {
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.6rem;
+}
+main .camera-ui .nav .icons div:hover {
+  background-color: #3a3a3a;
+}
+main .camera-ui .nav .icons .close:hover {
+  background-color: red;
+}
+main .camera-ui .up {
+  display: flex;
+  height: 94%;
+  justify-content: space-between;
+}
+main .camera-ui .up .video {
+  width: 86%;
+  height: 100%;
+  padding: 0rem 4rem;
+}
+main .camera-ui .up .video video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .camera-ui .bottom {
+  width: 14%;
+  display: flex;
+  position: relative;
+  flex-direction: column-reverse;
+  padding-bottom: 2rem;
+  padding-right: 2rem;
+}
+main .camera-ui .bottom-right {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 5px;
+  border: 2px solid white;
+  margin-left: auto;
+}
+main .camera-ui .bottom-right img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .camera-ui .shutter-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  border: 4px solid gray;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+}
 main .icon {
   width: 4rem;
   height: 4rem;
@@ -120,34 +218,44 @@ main .fileExplorerWindow {
 main .thisPCwindow .nav,
 main .fileExplorerWindow .nav {
   display: flex;
-  color: white;
   justify-content: space-between;
-  background-color: black;
+  align-items: center;
+  background-color: #252526;
+  color: #cccccc;
+  padding: 0 10px;
+  height: 2rem;
+  font-size: 14px;
 }
 main .thisPCwindow .nav span,
 main .fileExplorerWindow .nav span {
-  width: 18%;
   align-self: center;
   padding: 0 0.5rem;
-}
-main .thisPCwindow .nav .test,
-main .fileExplorerWindow .nav .test {
-  width: 62%;
 }
 main .thisPCwindow .nav .icons,
 main .fileExplorerWindow .nav .icons {
   display: flex;
-  width: 20%;
+  height: 100%;
+  width: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-main .thisPCwindow .nav .icons .elem,
-main .fileExplorerWindow .nav .icons .elem {
-  padding: 0.8rem;
+main .thisPCwindow .nav .icons div,
+main .fileExplorerWindow .nav .icons div {
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.6rem;
 }
-main .thisPCwindow .nav .icons .elem:hover,
-main .fileExplorerWindow .nav .icons .elem:hover {
+main .thisPCwindow .nav .icons div:hover,
+main .fileExplorerWindow .nav .icons div:hover {
   background-color: #3a3a3a;
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(4px);
+}
+main .thisPCwindow .nav .icons .close:hover,
+main .fileExplorerWindow .nav .icons .close:hover {
+  background-color: red;
 }
 main .thisPCwindow .two,
 main .fileExplorerWindow .two {
@@ -297,12 +405,14 @@ main .thisPCwindow .right .frequentFol .folder .folderRight {
   justify-content: center;
   gap: 0.2rem;
 }
-main .thisPCwindow .right .frequentFol .folder .folderRight .useC, main .thisPCwindow .right .frequentFol .folder .folderRight .useD {
+main .thisPCwindow .right .frequentFol .folder .folderRight .useC,
+main .thisPCwindow .right .frequentFol .folder .folderRight .useD {
   border: 1px solid white;
   height: 1.2rem;
   position: relative;
 }
-main .thisPCwindow .right .frequentFol .folder .folderRight .useC .color, main .thisPCwindow .right .frequentFol .folder .folderRight .useD .color {
+main .thisPCwindow .right .frequentFol .folder .folderRight .useC .color,
+main .thisPCwindow .right .frequentFol .folder .folderRight .useD .color {
   position: absolute;
   top: 0;
   left: 0;
@@ -340,12 +450,6 @@ main .fileExplorerWindow .five .right .frequentFol .folder .folderImg img {
 }
 main .fileExplorerWindow .five .right .frequentFol .folder p {
   color: white;
-}
-main .maximized {
-  height: 100%;
-  top: 0;
-  left: 0;
-  width: 100%;
 }
 
 footer {
@@ -407,6 +511,174 @@ footer .left .leftIcon:hover,
 footer .left .chrome:hover,
 footer .left .vsCode:hover {
   background-color: #3a3a3a;
+}
+footer .left .vsCode {
+  background-color: #1e1e1e;
+  color: #cccccc;
+}
+footer .left .vsCode .vscode-ui {
+  display: none;
+  flex-direction: column;
+  height: 30rem;
+  width: 40rem;
+  position: absolute;
+  bottom: 10%;
+  left: 20%;
+  z-index: 10;
+}
+footer .left .vsCode .vscode-ui .top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #252526;
+  color: #cccccc;
+  padding: 0 10px;
+  height: 2rem;
+  font-size: 14px;
+}
+footer .left .vsCode .vscode-ui .top-bar .menu {
+  display: flex;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer .left .vsCode .vscode-ui .top-bar .menu span {
+  padding: 0 0.5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+footer .left .vsCode .vscode-ui .top-bar .menu span:hover {
+  background-color: #3a3a3a;
+}
+footer .left .vsCode .vscode-ui .top-bar .window-controls {
+  display: flex;
+  height: 100%;
+  width: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer .left .vsCode .vscode-ui .top-bar .window-controls div {
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.6rem;
+}
+footer .left .vsCode .vscode-ui .top-bar .window-controls div:hover {
+  background-color: #3a3a3a;
+}
+footer .left .vsCode .vscode-ui .main {
+  display: flex;
+  flex: 1;
+}
+footer .left .vsCode .vscode-ui .main .sidebar {
+  background-color: #333333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+footer .left .vsCode .vscode-ui .main .sidebar .icon {
+  color: #999999;
+  font-size: 1.5rem;
+  padding: 0.8rem;
+  cursor: pointer;
+}
+footer .left .vsCode .vscode-ui .main .sidebar .icon:hover {
+  color: white;
+  background-color: #3a3a3a;
+}
+footer .left .vsCode .vscode-ui .main .file-panel {
+  width: 12rem;
+  background-color: #252526;
+  padding: 10px;
+}
+footer .left .vsCode .vscode-ui .main .file-panel h3 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: #cccccc;
+}
+footer .left .vsCode .vscode-ui .main .file-panel ul {
+  list-style: none;
+  padding: 0;
+}
+footer .left .vsCode .vscode-ui .main .file-panel ul li {
+  padding: 4px 0;
+  font-size: 12px;
+  cursor: pointer;
+}
+footer .left .vsCode .vscode-ui .main .file-panel ul li:hover {
+  color: white;
+}
+footer .left .vsCode .vscode-ui .main .editor {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+footer .left .vsCode .vscode-ui .main .editor .tabs {
+  display: flex;
+  background-color: #2d2d2d;
+  height: 30px;
+  align-items: center;
+  font-size: 13px;
+}
+footer .left .vsCode .vscode-ui .main .editor .tabs .tab {
+  padding: 0 12px;
+  line-height: 30px;
+  background-color: transparent;
+  color: #cccccc;
+  cursor: pointer;
+}
+footer .left .vsCode .vscode-ui .main .editor .tabs .tab.active {
+  background-color: #1e1e1e;
+  border-bottom: 2px solid #007acc;
+}
+footer .left .vsCode .vscode-ui .main .editor .tabs i {
+  margin-left: auto;
+  padding-right: 1rem;
+  cursor: pointer;
+}
+footer .left .vsCode .vscode-ui .main .editor .code-area {
+  flex: 1;
+  background-color: #1e1e1e;
+  padding: 10px;
+}
+footer .left .vsCode .vscode-ui .main .editor .code-area textarea {
+  width: 100%;
+  height: 100%;
+  background-color: #1e1e1e;
+  color: #cccccc;
+  border: none;
+  resize: none;
+  font-family: monospace;
+  font-size: 14px;
+  outline: none;
+}
+footer .left .vsCode .vscode-ui .main .editor .terminal {
+  height: 150px;
+  background-color: #1e1e1e;
+  color: #cccccc;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 13px;
+  border-top: 1px solid #333;
+}
+footer .left .vsCode .vscode-ui .main .editor .terminal pre {
+  white-space: pre-wrap;
+}
+footer .left .vsCode .vscode-ui .status-bar {
+  background-color: #333333;
+  color: #cccccc;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 12px;
 }
 footer .right {
   display: flex;

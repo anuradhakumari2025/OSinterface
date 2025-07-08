@@ -69,116 +69,133 @@ function brightnessController() {
 }
 brightnessController();
 
-//file explorer
-let fileExplorer = document.querySelector(".fileExplorer");
-
-let thisPC = document.querySelector(".thisPC");
-let thisPCwindow = document.querySelector(".thisPCwindow");
-let fileExplorerWindow = document.querySelector(".fileExplorerWindow");
 let windowOpen = document.querySelector(".window");
 
 //function for This PC
-thisPC.addEventListener("dblclick", () => {
-  thisPCwindow.style.display = "block";
-  document
-    .querySelector(".thisPCwindow .nav .icons .close")
-    .addEventListener("click", () => {
-      thisPCwindow.style.display = "none";
-    });
-  let maximize = false;
-  const maximizeDiv = document.querySelector(
-    ".thisPCwindow .nav .icons .maximize"
-  );
-  maximizeDiv.addEventListener("click", () => {
-    const maximizeIcon = document.querySelector(
-      ".thisPCwindow .nav .icons .maximize i"
+function thisPCfunctionality() {
+  let thisPC = document.querySelector(".thisPC");
+  let thisPCwindow = document.querySelector(".thisPCwindow");
+  thisPC.addEventListener("dblclick", () => {
+    thisPCwindow.style.display = "block";
+    document
+      .querySelector(".thisPCwindow .nav .icons .close")
+      .addEventListener("click", () => {
+        thisPCwindow.style.display = "none";
+      });
+    let maximize = false;
+    const maximizeDiv = document.querySelector(
+      ".thisPCwindow .nav .icons .maximize"
     );
-    const thisPCheader = document.querySelector(
-      ".thisPCwindow .nav #thisPCHeader"
-    );
-    const icons = document.querySelector(".thisPCwindow .nav .icons");
-    const sidebar = document.querySelector(
-      ".thisPCwindow .five .sidebar"
-    );
-    const thisPCcontent = document.querySelector(
-      ".thisPCwindow .five .right"
-    );
-    if (!maximize) {
-      thisPCwindow.classList.add("maximized");
+    maximizeDiv.addEventListener("click", () => {
+      const maximizeIcon = document.querySelector(
+        ".thisPCwindow .nav .icons .maximize i"
+      );
 
-      maximizeIcon.classList.remove("ri-square-line");
-      maximizeIcon.classList.add("ri-file-copy-line");
-      thisPCheader.style.width = "73%";
-      icons.style.width = "9%";
-sidebar.style.width = "12%";
-      thisPCcontent.style.width = "88%";
-      maximize = true;
-    } else {
-      thisPCwindow.classList.remove("maximized");
-      maximizeIcon.classList.remove("ri-file-copy-line");
-      maximizeIcon.classList.add("ri-square-line");
-      thisPCheader.style.width = "62%";
-      icons.style.width = "20%";
-      thisPCcontent.style.width = "75%";
-      sidebar.style.width = "20%";
-      maximize = false;
+      const sidebar = document.querySelector(".thisPCwindow .five .sidebar");
+      const thisPCcontent = document.querySelector(
+        ".thisPCwindow .five .right"
+      );
+      if (!maximize) {
+        thisPCwindow.style.width = "100%";
+        thisPCwindow.style.top = "0";
+        thisPCwindow.style.left = "0";
+        thisPCwindow.style.height = "100%";
+        maximizeIcon.classList.remove("ri-square-line");
+        maximizeIcon.classList.add("ri-file-copy-line");
+        sidebar.style.width = "12%";
+        thisPCcontent.style.width = "88%";
+        maximize = true;
+      } else {
+        thisPCwindow.style.width = "40rem";
+        thisPCwindow.style.top = "10%";
+        thisPCwindow.style.left = "20%";
+        thisPCwindow.style.height = "30rem";
+        maximizeIcon.classList.remove("ri-file-copy-line");
+        maximizeIcon.classList.add("ri-square-line");
+        thisPCcontent.style.width = "75%";
+        sidebar.style.width = "20%";
+        maximize = false;
+      }
+    });
+  });
+  const nav = document.querySelector(".thisPCwindow .nav");
+
+  nav.addEventListener("mousedown", (e) => {
+    const isSpan = e.target.closest("span");
+    const isWindowControls = e.target.closest(".icons");
+
+    if (!isSpan && !isWindowControls) {
+      dragElement(thisPCwindow);
     }
   });
-});
+}
+thisPCfunctionality();
 
 //function for file explorer
-fileExplorer.addEventListener("dblclick", () => {
-  fileExplorerWindow.style.display = "block";
-  const close = document.querySelector(
-    ".fileExplorerWindow .nav .icons .close"
-  );
+function fileExplorerFunctionality() {
+  let fileExplorer = document.querySelector(".fileExplorer");
+  let fileExplorerWindow = document.querySelector(".fileExplorerWindow");
 
-  close.addEventListener("click", () => {
-    fileExplorerWindow.style.display = "none";
+  fileExplorer.addEventListener("dblclick", () => {
+    fileExplorerWindow.style.display = "block";
+    const close = document.querySelector(
+      ".fileExplorerWindow .nav .icons .close"
+    );
+
+    close.addEventListener("click", () => {
+      fileExplorerWindow.style.display = "none";
+    });
+    let maximize = false;
+    const maximizeDiv = document.querySelector(
+      ".fileExplorerWindow .nav .icons .maximize"
+    );
+
+    maximizeDiv.addEventListener("click", () => {
+      const maximizeIcon = document.querySelector(
+        ".fileExplorerWindow .nav .icons .maximize i"
+      );
+
+      const sidebar = document.querySelector(
+        ".fileExplorerWindow .five .sidebar"
+      );
+      const fileExplorerContent = document.querySelector(
+        ".fileExplorerWindow .five .right"
+      );
+      if (!maximize) {
+        maximizeIcon.classList.remove("ri-square-line");
+        maximizeIcon.classList.add("ri-file-copy-line");
+        fileExplorerWindow.style.width = "100%";
+        fileExplorerWindow.style.top = "0";
+        fileExplorerWindow.style.left = "0";
+        fileExplorerWindow.style.height = "100%";
+        sidebar.style.width = "12%";
+        fileExplorerContent.style.width = "88%";
+        maximize = true;
+      } else {
+        maximizeIcon.classList.remove("ri-file-copy-line");
+        maximizeIcon.classList.add("ri-square-line");
+        fileExplorerWindow.style.width = "40rem";
+        fileExplorerWindow.style.top = "10%";
+        fileExplorerWindow.style.left = "20%";
+        fileExplorerWindow.style.height = "30rem";
+        fileExplorerContent.style.width = "75%";
+        sidebar.style.width = "20%";
+        maximize = false;
+      }
+    });
   });
-  let maximize = false;
-  const maximizeDiv = document.querySelector(
-    ".fileExplorerWindow .nav .icons .maximize"
-  );
+  const nav = document.querySelector(".fileExplorerWindow .nav");
 
-  maximizeDiv.addEventListener("click", () => {
-    const maximizeIcon = document.querySelector(
-      ".fileExplorerWindow .nav .icons .maximize i"
-    );
-    const fileExplorerHeader = document.querySelector(
-      ".fileExplorerWindow .nav #fileExplorerHeader"
-    );
-    const icons = document.querySelector(".fileExplorerWindow .nav .icons");
-    const sidebar = document.querySelector(
-      ".fileExplorerWindow .five .sidebar"
-    );
-    const fileExplorerContent = document.querySelector(
-      ".fileExplorerWindow .five .right"
-    );
-    if (!maximize) {
-      fileExplorerWindow.classList.add("maximized");
-      maximizeIcon.classList.remove("ri-square-line");
-      maximizeIcon.classList.add("ri-file-copy-line");
-      fileExplorerHeader.style.width = "73%";
-      icons.style.width = "9%";
-      sidebar.style.width = "12%";
-      fileExplorerContent.style.width = "88%";
-      maximize = true;
-    } else {
-      fileExplorerWindow.classList.remove("maximized");
-      maximizeIcon.classList.remove("ri-file-copy-line");
-      maximizeIcon.classList.add("ri-square-line");
-      fileExplorerHeader.style.width = "62%";
-      icons.style.width = "20%";
-      fileExplorerContent.style.width = "75%";
-      sidebar.style.width = "20%";
-      maximize = false;
+  nav.addEventListener("mousedown", (e) => {
+    const isSpan = e.target.closest("span");
+    const isWindowControls = e.target.closest(".icons");
+
+    if (!isSpan && !isWindowControls) {
+      dragElement(fileExplorerWindow);
     }
   });
-});
-
-dragElement(fileExplorerWindow);
-dragElement(thisPCwindow);
+}
+fileExplorerFunctionality();
 
 function dragElement(elem) {
   var pos1 = 0,
@@ -252,6 +269,7 @@ document.addEventListener("click", (e) => {
     contextMenu.style.display = "none"; // or use a class to hide it
   }
 });
+
 main.addEventListener("click", (e) => {
   // Check if click target is NOT inside the context menu
   if (!overlayNotificationDiv.contains(e.target)) {
@@ -433,3 +451,139 @@ function startMenuOpen() {
   });
 }
 startMenuOpen();
+
+function vsCodeFunctionality() {
+  let vsCodeDiv = document.querySelector("footer .left .vsCode");
+  let vsCodeWindow = document.querySelector("footer .left .vsCode .vscode-ui");
+  let topBar = document.querySelector(
+    "footer .left .vsCode .vscode-ui .top-bar"
+  );
+
+  vsCodeDiv.addEventListener("dblclick", () => {
+    vsCodeWindow.style.display = "flex";
+  });
+
+  let close = document.querySelector(
+    "footer .left .vsCode .vscode-ui .top-bar .window-controls .close"
+  );
+
+  close.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevent bubbling up to vsCodeDiv
+    vsCodeWindow.style.display = "none";
+  });
+  let maximize = document.querySelector(
+    "footer .left .vsCode .vscode-ui .top-bar .window-controls .maximize"
+  );
+
+  let maximizeIcon = document.querySelector(
+    "footer .left .vsCode .vscode-ui .top-bar .window-controls .maximize i"
+  );
+
+  let isMaximize = false;
+  maximize.addEventListener("click", (e) => {
+    if (!isMaximize) {
+      maximizeIcon.classList.remove("ri-square-line");
+      maximizeIcon.classList.add("ri-file-copy-line");
+      vsCodeWindow.style.width = "100%";
+      vsCodeWindow.style.top = "0";
+      vsCodeWindow.style.left = "0";
+      vsCodeWindow.style.height = "92%";
+      isMaximize = true;
+    } else {
+      maximizeIcon.classList.remove("ri-file-copy-line");
+      maximizeIcon.classList.add("ri-square-line");
+      vsCodeWindow.style.width = "40rem";
+      vsCodeWindow.style.top = "10%";
+      vsCodeWindow.style.left = "20%";
+      vsCodeWindow.style.height = "30rem";
+      isMaximize = false;
+    }
+  });
+
+  topBar.addEventListener("mousedown", (e) => {
+    const isMenu = e.target.closest(".menu");
+    const isWindowControls = e.target.closest(".window-controls");
+
+    if (!isMenu && !isWindowControls) {
+      dragElement(vsCodeWindow);
+    }
+  });
+}
+vsCodeFunctionality();
+
+const runBtn = document.querySelector(".vscode-ui .main .editor .tabs .run");
+const codeArea = document.querySelector(".vscode-ui .main .editor #code-area");
+const output = document.querySelector("#terminalOutput");
+
+runBtn.addEventListener("click", () => {
+  const code = codeArea.value;
+  let result = "";
+
+  const originalConsoleLog = console.log;
+
+  // Override console.log temporarily to capture output
+  console.log = function (...args) {
+    result += args.join(" ") + "\n";
+  };
+
+  try {
+    eval(code); // ⚠️ Use only for controlled/test environments
+  } catch (e) {
+    result += "Error: " + e.message;
+  }
+
+  // Restore original console.log
+  console.log = originalConsoleLog;
+
+  output.textContent = result.trim() || " ";
+});
+
+function cameraFunctionality() {
+  let cameraIcon = document.querySelector(".camera");
+  let cameraUI = document.querySelector(".camera-ui");
+  let close = document.querySelector(".camera-ui .nav .icons .close");
+  const video = document.getElementById("video");
+  const canvas = document.getElementById("canvas");
+  const clickBtn = document.getElementById("clickPhoto");
+  const capturedImage = document.getElementById("capturedImage");
+  cameraIcon.addEventListener("click", () => {
+    cameraUI.style.display = "flex";
+
+    // Step 1: Request access to the camera
+    navigator.mediaDevices
+      .getUserMedia({ video: true })
+      .then((stream) => {
+        video.srcObject = stream;
+      })
+      .catch((err) => {
+        alert("Camera access denied: " + err.message);
+      });
+
+    // Step 2: Click photo and show it
+    clickBtn.addEventListener("click", () => {
+      const context = canvas.getContext("2d");
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const imageDataURL = canvas.toDataURL("image/png");
+
+      capturedImage.src = imageDataURL;
+    });
+  });
+
+  close.addEventListener("click", () => {
+    cameraUI.style.display = "none";
+
+    // Stop the camera stream
+    const video = document.getElementById("video");
+    const stream = video.srcObject;
+
+    if (stream) {
+      const tracks = stream.getTracks();
+      tracks.forEach((track) => track.stop());
+      video.srcObject = null;
+    }
+  });
+}
+cameraFunctionality();

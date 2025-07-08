@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Window</title>
-    <!-- <link rel="preload" as="image" href="./assets/window.jpg" /> -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
@@ -28,10 +27,11 @@
       <div class="thisPC icon">
         <img src="./assets/thisPC.png" alt="" />
       </div>
+
       <div class="thisPCwindow" id="thisPC">
-        <div class="nav">
+        <div class="nav" id="thisPCHeader">
           <span>This PC</span>
-          <div class="test" id="thisPCHeader"></div>
+
           <div class="icons">
             <div class="minimize elem">
               <i class="ri-subtract-fill"></i>
@@ -49,18 +49,21 @@
           <h3 class="computer">Computer</h3>
           <h3>View</h3>
         </div>
+
         <div class="three">
           <div class="threeIcon">
             <div class="properties">
               <div class="i"><i class="ri-pushpin-fill"></i></div>
               <h4>Properties</h4>
             </div>
+
             <div class="open">
               <div class="i">
                 <i class="ri-file-copy-2-line"></i>
               </div>
               <h4>Open</h4>
             </div>
+
             <div class="rename">
               <div class="i"><i class="ri-clipboard-fill"></i></div>
               <h4>Rename</h4>
@@ -123,16 +126,19 @@
           </div>
         </div>
       </div>
+
       <div class="recycleBin icon">
         <img src="./assets/recycleBin.png" alt="" />
       </div>
+
       <div class="fileExplorer icon">
         <img src="./assets/files.png" alt="" />
       </div>
+
       <div class="fileExplorerWindow" id="fileExplorer">
-        <div class="nav">
+        <div class="nav" id="fileExplorerHeader">
           <span>File Explorer</span>
-          <div class="test" id="fileExplorerHeader"></div>
+
           <div class="icons">
             <div class="minimize elem">
               <i class="ri-subtract-fill"></i>
@@ -145,12 +151,14 @@
             </div>
           </div>
         </div>
+
         <div class="two">
           <h3 class="file">File</h3>
           <h3 class="computer">Home</h3>
           <h3>Share</h3>
           <h3>View</h3>
         </div>
+
         <div class="three">
           <div class="threeIcon">
             <div class="properties">
@@ -174,6 +182,7 @@
           </div>
           <p>Clipboard</p>
         </div>
+
         <div class="four">
           <div class="fourIcon">
             <i class="ri-arrow-left-line"></i>
@@ -190,6 +199,7 @@
           <div class="box">Quick Access</div>
           <div class="searchBox">Search</div>
         </div>
+
         <div class="five">
           <div class="sidebar">
             <ul>
@@ -229,6 +239,40 @@
                 </div>
                 <p>Music</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="camera icon">
+        <img src="./assets/camera.png" alt="" />
+      </div>
+
+      <div class="camera-ui">
+        <div class="nav" id="camera-uiHeader">
+          <span>Camera</span>
+
+          <div class="icons">
+            <div class="minimize elem">
+              <i class="ri-subtract-fill"></i>
+            </div>
+            <div class="maximize elem">
+              <i class="ri-square-line"></i>
+            </div>
+            <div class="close elem">
+              <i class="ri-close-large-fill"></i>
+            </div>
+          </div>
+        </div>
+        <div class="up">
+          <div class="video">
+            <video id="video" autoplay muted playsinline></video>
+            <canvas id="canvas" style="display: none"></canvas>
+          </div>
+          <div class="bottom">
+            <button id="clickPhoto" class="shutter-btn"></button>
+            <div class="bottom-right">
+              <img id="capturedImage" src="" alt="Preview" />
             </div>
           </div>
         </div>
@@ -342,24 +386,111 @@
             </div>
           </div>
         </div>
+
         <div class="search leftIcon">
           <div class="searchIcon">
             <i class="ri-search-line"></i>
           </div>
           <input type="text " placeholder="Type here to search" />
         </div>
+
         <div class="taskView leftIcon">
           <i class="ri-carousel-view"></i>
         </div>
+
         <div class="chrome">
-          <!-- <a href="https://www.google.com/chrome/"> -->
-            <img src="./assets/chrome.png" alt="" />
-          <!-- </a> -->
+          <img src="./assets/chrome.png" alt="" />
         </div>
+
         <div class="vsCode">
           <img src="./assets/vscode.png" alt="" />
+
+          <div class="vscode-ui" id="vscode-ui">
+            <!-- Top Bar -->
+            <div class="top-bar" id="vscode-uiHeader">
+              <div class="menu">
+                <span>File</span>
+                <span>Edit</span>
+                <span>Selection</span>
+                <span>View</span>
+                <span>Go</span>
+                <span>Run</span>
+                <span>Terminal</span>
+                <span>Help</span>
+              </div>
+
+              <div class="window-controls">
+                <div class="minimize">
+                  <i class="ri-subtract-fill"></i>
+                </div>
+                <div class="maximize">
+                  <i class="ri-square-line"></i>
+                </div>
+                <div class="close">
+                  <i class="ri-close-large-fill"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Main Section -->
+            <div class="main">
+              <!-- Sidebar -->
+              <div class="sidebar">
+                <i class="ri-sticky-note-line icon"></i>
+                <i class="ri-search-line icon"></i>
+                <i class="ri-git-branch-line icon"></i>
+                <i class="ri-play-large-fill icon"></i>
+                <i class="ri-account-circle-line icon"></i>
+                <i class="ri-settings-5-line icon"></i>
+              </div>
+
+              <!-- File Panel -->
+              <div class="file-panel">
+                <h3>EXPLORER</h3>
+                <ul>
+                  <li>main.js</li>
+                  <li>index.html</li>
+                  <li>style.scss</li>
+                </ul>
+              </div>
+
+              <!-- Editor -->
+              <div class="editor">
+                <!-- Tabs -->
+                <div class="tabs">
+                  <div class="tab active">main.js</div>
+                  <div class="tab">index.html</div>
+                  <div class="tab">style.scss</div>
+                  <i class="ri-play-large-fill run"></i>
+                </div>
+
+                <!-- Code Area -->
+                <div class="code-area">
+                  <textarea
+                    spellcheck="false"
+                    id="code-area"
+                    placeholder="// Start typing your code here..."
+                  >
+console.log("Hello World")</textarea
+                  >
+                </div>
+
+                <!-- Terminal Output -->
+                <div class="terminal">
+                  <span>Output:-</span>
+                  <pre id="terminalOutput">Hello World</pre>
+                </div>
+              </div>
+            </div>
+
+            <!-- Status Bar -->
+            <div class="status-bar">
+              <span>Ln 1, Col 1</span>
+            </div>
+          </div>
         </div>
       </div>
+
       <div class="right">
         <div class="weather rightIcon">
           <i class="ri-sun-cloudy-fill"></i>
@@ -465,6 +596,7 @@
         </div>
       </div>
     </footer>
+
     <script src="./main.js"></script>
   </body>
 </html>
