@@ -256,12 +256,12 @@ const main = document.querySelector("main");
 const contextMenu = document.querySelector(".contextMenu");
 
 // Show context menu on right click
-// main.addEventListener("contextmenu", (e) => {
-//   e.preventDefault();
-//   contextMenu.style.display = "block";
-//   contextMenu.style.left = `${e.clientX}px`;
-//   contextMenu.style.top = `${e.clientY}px`;
-// });
+main.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+  contextMenu.style.display = "block";
+  contextMenu.style.left = `${e.clientX}px`;
+  contextMenu.style.top = `${e.clientY}px`;
+});
 
 document.addEventListener("click", (e) => {
   // Check if click target is NOT inside the context menu
@@ -511,6 +511,7 @@ function vsCodeFunctionality() {
 }
 vsCodeFunctionality();
 
+//Run code in vs code
 const runBtn = document.querySelector(".vscode-ui .main .editor .tabs .run");
 const codeArea = document.querySelector(".vscode-ui .main .editor #code-area");
 const output = document.querySelector("#terminalOutput");
